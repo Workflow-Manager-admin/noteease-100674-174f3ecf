@@ -1,0 +1,88 @@
+:root {
+  --fab-accent: #F5A623; /* Accent color for FAB */
+  --glass-bg-dark: rgba(26, 26, 26, 0.65);
+  --glass-bg-light: rgba(255,255,255,0.45);
+  --glass-blur: 16px;
+}
+
+.theme-wrapper {
+  min-height: 100vh;
+  transition: background 0.3s;
+}
+.theme-wrapper.dark {
+  background: linear-gradient(135deg, #232526 0%, #1A1A1A 100%);
+  color: white;
+}
+.theme-wrapper.light {
+  background: linear-gradient(135deg, #F3F3F3 0%, #dbe4ee 100%);
+  color: #1a1a1a;
+}
+
+.noteease-main-container {
+  margin: 100px auto 0 auto;
+  max-width: 720px;
+  min-height: 60vh;
+  padding: 2.5rem 1.7rem;
+  border-radius: 1.7rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1.5px solid rgba(255,255,255, 0.21);
+  background: var(--glass-bg-dark);
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.noteease-main-container.light {
+  background: var(--glass-bg-light);
+  border: 1.5px solid rgba(171, 171, 171, 0.16);
+  color: #1a1a1a;
+}
+.noteease-main-container.dark {
+  background: var(--glass-bg-dark);
+  color: #fff;
+}
+
+/* Floating Action Button */
+.floating-action-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 34px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  box-shadow: 0 4px 24px rgba(245, 166, 35, .25),
+    0 2px 8px rgba(0,0,0,0.11);
+  background: var(--fab-accent);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.15s, transform 0.12s;
+  will-change: transform;
+}
+.floating-action-btn:active,
+.floating-action-btn:focus {
+  transform: scale(0.95);
+  box-shadow: 0 1px 8px rgba(245,166,35,0.26);
+}
+.floating-action-btn svg {
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .noteease-main-container {
+    padding: 1.35rem 0.7rem;
+  }
+  .floating-action-btn {
+    bottom: 20px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+}
